@@ -1,0 +1,43 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+{% block title %}
+Entregables
+{% endblock %}
+{% block content %}
+<h1>Entregables</h1>
+    <p>Registralos aquí</p>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr class="table-danger">
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo electrónico</th>
+            <th scope="col">Profesión</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for entregable in entregar %}
+            <tr class="table-success">
+              <td>{{entregable.nombre}}</td>
+              <td>{{entregable.apellido}}</td>
+              <td>{{entregable.email}}</td>
+              <td>{{entregable.profesion}}</td>
+              <td>
+                <a class="btn btn-danger" href="{% url 'entregables_eliminar' entregable.id %}">Eliminar</a>
+                <a class="btn btn-warning" href="{% url 'entregables_editar' entregable.id %}">Editar</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+{% endblock %}

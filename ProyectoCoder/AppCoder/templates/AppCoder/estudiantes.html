@@ -1,0 +1,44 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+{% block title %}
+Estudiantes
+{% endblock %}
+{% block content %}
+<h1>Nuestros Estudiantes</h1>
+    <p>Registrate aquí</p>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr class="table-danger">
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo electrónico</th>
+            <th scope="col">Profesión</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for estudiante in alumno %}
+            <tr class="table-success">
+              <td>{{estudiante.nombre}}</td>
+              <td>{{estudiante.apellido}}</td>
+              <td>{{estudiante.email}}</td>
+              <td>{{estudiante.profesion}}</td>
+              <td>
+                <a class="btn btn-danger" href="{% url 'estudiante_eliminar' estudiante.id %}">Eliminar</a>
+                <a class="btn btn-warning" href="{% url 'estudiante_editar' estudiante.id %}">Editar</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+
+{% endblock %}

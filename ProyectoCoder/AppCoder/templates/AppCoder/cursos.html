@@ -1,0 +1,41 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+{% block title %}
+Cursos
+{% endblock %}
+
+{% block content %}
+    <h1>Nuestros cursos</h1>
+    <p>Los mejores cursos de latinoamerica</p>
+
+    <h2>Buscar curso</h2>
+    <h2 class="text-center mt-2">Buscar curso</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+    <form action="" method="GET">
+        <input type="text" name="q" placeholder="Buscar..." required>
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr class="table-warning">
+            <th scope="col">Curso</th>
+            <th scope="col">Comision</th>
+          </tr>
+        </thead>
+    
+        <tbody>
+            {% for cursos in cursos %}
+        <tr class="table-danger">
+            <td>{{ cursos.nombre }}</td>
+            <td>{{ cursos.camada }}</td>
+            {% endfor %}
+          </tr> 
+        </tbody>
+        
+      </table>
+    </div>
+{% endblock %}

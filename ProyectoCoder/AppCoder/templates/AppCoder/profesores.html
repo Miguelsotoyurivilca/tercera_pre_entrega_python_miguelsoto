@@ -1,0 +1,43 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+{% block title %}
+Profesores
+{% endblock %}
+{% block content %}
+<h1>Nuestros Profesores</h1>
+    <p>Capacitate con nuestros Profes</p>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr class="table-danger">
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo electrónico</th>
+            <th scope="col">Profesión</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for profe in profes %}
+            <tr class="table-success">
+              <td>{{profe.nombre}}</td>
+              <td>{{profe.apellido}}</td>
+              <td>{{profe.email}}</td>
+              <td>{{profe.profesion}}</td>
+              <td>
+                <a class="btn btn-danger" href="{% url 'profe_eliminar' profe.id %}">Eliminar</a>
+                <a class="btn btn-warning" href="{% url 'profe_editar' profe.id %}">Editar</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+{% endblock %}
